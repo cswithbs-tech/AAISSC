@@ -27,18 +27,7 @@ const About = () => {
         {/* ── Header ── */}
         <div className="about__header reveal">
           <p className="section__label">About the Seminar</p>
-          <h2 className="section__title">Why AAISSC 2026?</h2>
           <span className="gold-rule" />
-        </div>
-
-        {/* ── Stats strip ── */}
-        <div className="about__stats reveal">
-          {stats.map(({ num, lbl }) => (
-            <div key={lbl} className="about__stat">
-              <span className="about__stat-num">{num}</span>
-              <span className="about__stat-lbl">{lbl}</span>
-            </div>
-          ))}
         </div>
 
         {/* ── Two column text ── */}
@@ -64,6 +53,14 @@ const About = () => {
               The seminar is aligned with major national initiatives: <strong>Digital India</strong>, <strong>Green Computing</strong>, <strong>Smart Systems</strong>, and the <strong>UN Sustainable Development Goals (SDGs)</strong>, all of which focus on responsible use of technology.
             </p>
           </div>
+        </div>
+
+        {/* ── Full Width About College Card ── */}
+        <div className="about__card card reveal" style={{ marginTop: '2.5rem' }}>
+          <h3>About Midnapore City College</h3>
+          <p>
+            Midnapore City College (MCC), located in the serene environment of Bhadutala, Paschim Medinipur, is a premier educational institution dedicated to providing quality, value-based higher education. Established by the Morine Human Resource Development Organization and affiliated with Vidyasagar University, the college offers a diverse array of undergraduate and postgraduate programs. With its commitment to holistic development and innovative learning, MCC fosters a vibrant culture of academic excellence and research.
+          </p>
         </div>
 
       </div>

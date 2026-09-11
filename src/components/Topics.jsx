@@ -37,52 +37,91 @@ const Topics = () => {
     <section id="topics" className="section section--alt" ref={ref}>
       <div className="container">
 
-        <div className="reveal">
+        {/* ── Top: Title (as it is) ── */}
+        <div className="reveal" style={{ marginBottom: '3rem' }}>
           <p className="section__label">Call for Papers</p>
           <h2 className="section__title">Topics &amp; Sub-Themes</h2>
           <span className="gold-rule" />
-          <p className="section__subtitle">
-            We welcome original research papers on AI applications in sustainable and smart computing covering the following areas.
-          </p>
         </div>
 
-        {/* ── Theme Cards Grid ── */}
-        <div className="topics__grid">
-          {themes.map(({ icon, title, desc }, i) => (
-            <div key={i} className="topics__card card reveal">
-              <div className="topics__card-icon">{icon}</div>
-              <h3 className="topics__card-title">{title}</h3>
-              <p className="topics__card-desc">{desc}</p>
+        {/* ── Split Layout ── */}
+        <div className="topics__split">
+          
+          {/* ── Left Column: Intro Text, Objectives, Guidelines ── */}
+          <div className="topics__left-col">
+            
+            <div className="topics__intro reveal">
+              <p>
+                We welcome original research papers on AI applications in sustainable and smart computing. 
+                This seminar provides a premier interdisciplinary platform for researchers, practitioners, 
+                and educators to present and discuss the most recent innovations, trends, and concerns, 
+                as well as practical challenges encountered and solutions adopted in the fields of Smart Computing.
+              </p>
             </div>
-          ))}
-        </div>
 
-        {/* ── Objectives ── */}
-        <div className="topics__objectives reveal">
-          <div className="topics__obj-text">
-            <h3>Seminar Objectives</h3>
-            <ul>
-              <li>Understand fundamental concepts and advancements in AI &amp; Sustainable Computing.</li>
-              <li>Explore AI-enabled smart computing paradigms and intelligent system architectures.</li>
-              <li>Provide a platform to present innovative research findings and ideas.</li>
-              <li>Discuss current challenges, ethical considerations, and future directions.</li>
-            </ul>
+            <div className="topics__objectives-card reveal">
+              <h3>Seminar Objectives</h3>
+              <ul className="topics__obj-list">
+                <li>Understand fundamental concepts and advancements in AI &amp; Sustainable Computing.</li>
+                <li>Explore AI-enabled smart computing paradigms and intelligent system architectures.</li>
+                <li>Provide a platform to present innovative research findings and ideas.</li>
+                <li>Discuss current challenges, ethical considerations, and future directions.</li>
+              </ul>
+            </div>
+
+            
           </div>
 
-          <div className="topics__guidelines">
-            <h3>Submission Guidelines</h3>
-            <div className="topics__guide-list">
-              {guidelines.map(({ label, value }) => (
-                <div key={label} className="topics__guide-row">
-                  <span className="topics__guide-label">{label}</span>
-                  <span className="topics__guide-value">{value}</span>
+          {/* ── Right Column: The Topics List ── */}
+          <div className="topics__right-col">
+            <div className="topics__list">
+              {themes.map(({ title, desc }, i) => (
+                <div key={i} className="topics__list-item reveal">
+                  <h3 className="topics__list-title">{title}</h3>
+                  <p className="topics__list-desc">{desc}</p>
                 </div>
               ))}
             </div>
-            <a href="mailto:mcccon@gmail.com" className="btn btn--primary" style={{ marginTop: '1.5rem' }}>
-              Submit Abstract
-            </a>
           </div>
+
+        </div>
+
+        {/* ── Full Width: Info & Submission Card ── */}
+        <div className="topics__info-card reveal" style={{ marginTop: '4rem' }}>
+          
+          <div className="topics__info-section">
+            <h3>Who Can Attend?</h3>
+            <ul className="topics__attend-list">
+              <li>Faculty members from technical institutions.</li>
+              <li>Research scholars (PhD, M.Tech).</li>
+              <li>UG/PG students of engineering &amp; science.</li>
+              <li>Industry professionals &amp; practitioners.</li>
+            </ul>
+          </div>
+
+          <hr className="topics__divider" />
+
+          <div className="topics__info-section">
+            <h3>Guidelines of Abstract Submission</h3>
+            <p className="topics__info-highlight">
+              Abstract for oral and poster presentation (within 250 words) may be sent by email to: <a href="mailto:mcccon@gmail.com" className="email-link">mcccon@gmail.com</a>
+            </p>
+            
+            <h4 className="topics__info-subheading">Formatting Requirements</h4>
+            <ul className="topics__req-list">
+              <li><strong>Software:</strong> MS Word</li>
+              <li><strong>Font:</strong> Times New Roman, 1.5 spacing</li>
+              <li><strong>Title:</strong> All capital, bold, 14pt</li>
+              <li><strong>Author(s):</strong> Bold, 12pt</li>
+              <li><strong>Address:</strong> 11pt</li>
+              <li><strong>Abstract body:</strong> 12pt, complete sentences, active verbs, past tense</li>
+              <li><strong>Keywords:</strong> 6 to 8 (12pt)</li>
+            </ul>
+
+            <h3 style={{ marginTop: '2rem' }}>Guidelines of Poster Presentation</h3>
+            <p className="topics__info-highlight">Poster size will be strict <strong>3ft. x 4ft.</strong> (Width/Height).</p>
+          </div>
+
         </div>
 
       </div>

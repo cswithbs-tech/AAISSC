@@ -123,3 +123,23 @@
 @media (max-width: 960px) {
   .reg__layout { grid-template-columns: 1fr; }
 }
+
+@media (max-width: 500px) {
+  .reg__date-row, 
+  .reg__bank-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+    padding: 0.9rem 0;
+  }
+  .reg__date-row.highlight {
+    margin: 0 -1.5rem;
+    padding: 0.9rem 1.5rem;
+  }
+  .reg__table-block {
+    padding: 1.5rem 1rem;
+  }
+  .reg__dates, .reg__bank { 
+    padding: 1.5rem; 
+  }
+}

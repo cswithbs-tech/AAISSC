@@ -158,7 +158,6 @@
 
 .navbar__register-btn:hover {
   background-color: #D94E15;
-  transform: translateY(-2px);
 }
 
 /* ── Hamburger ── */
@@ -225,7 +224,6 @@
   background: rgba(255,255,255,0.08);
   color: #E8A020;
   font-weight: 600;
-  padding-left: 1.5rem;
 }
 
 .navbar__drawer-btn {
