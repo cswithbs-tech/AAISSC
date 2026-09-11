@@ -1,0 +1,86 @@
+.speakers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.tilt-effect {
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.tilt-effect:hover {
+  transform: translateY(-10px) rotateX(5deg) rotateY(-5deg);
+  box-shadow: -15px 15px 30px rgba(0,0,0,0.1);
+  border-color: var(--secondary-color);
+}
+
+.speaker-card {
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  height: 100%;
+}
+
+.speaker-avatar {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 800;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(242, 100, 25, 0.3);
+}
+
+.speaker-info h3 {
+  color: var(--primary-dark);
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.speaker-info p {
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+.committee-section {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.committee-list {
+  padding: 3rem;
+  border-top: 5px solid var(--secondary-color);
+}
+
+.committee-list p {
+  margin-bottom: 1.2rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  color: var(--text-light);
+}
+
+.committee-list p:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.committee-list strong {
+  color: var(--text-main);
+  display: inline-block;
+  width: 200px;
+}
+
+@media (max-width: 768px) {
+  .committee-list strong {
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+}

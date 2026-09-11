@@ -1,0 +1,128 @@
+.navbar {
+  position: fixed;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1000px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 1000;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.navbar.scrolled {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 0.8rem 2rem;
+  border: 1px solid rgba(255, 255, 255, 1);
+  width: 95%;
+  top: 1rem;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  transition: color 0.3s ease;
+}
+
+.navbar.scrolled .nav-logo {
+  color: var(--primary-dark);
+  text-shadow: none;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: var(--white);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.navbar.scrolled .nav-links a {
+  color: var(--text-main);
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--accent-color);
+  transition: width 0.3s ease;
+}
+
+.navbar.scrolled .nav-links a::after {
+  background-color: var(--secondary-color);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-btn {
+  background: var(--secondary-color) !important;
+  color: var(--white) !important;
+  padding: 0.6rem 1.5rem;
+  border-radius: 50px;
+  box-shadow: 0 4px 10px rgba(242, 100, 25, 0.3);
+}
+
+.nav-btn::after {
+  display: none;
+}
+
+.nav-btn:hover {
+  transform: translateY(-2px);
+  background: var(--primary-color) !important;
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  transition: all 0.3s ease-in-out;
+  background-color: var(--white);
+}
+
+.navbar.scrolled .bar {
+  background-color: var(--primary-dark);
+}
+
+@media (max-width: 850px) {
+  .nav-links {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+  }
+}
