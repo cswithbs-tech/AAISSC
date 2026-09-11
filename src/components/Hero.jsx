@@ -1,5 +1,6 @@
 import React from 'react';
 import './Hero.css';
+import heroImage from '../assets/Green Sprout on a Circuit Board.png';
 
 const Hero = () => {
   return (
@@ -55,7 +56,7 @@ const Hero = () => {
             <div className="hero__image-glow"></div>
             
             {/* The actual image */}
-            <img src="/brain.jpg" alt="AI Brain Neural Network" className="hero__brain-img" />
+            <img src={heroImage} alt="AI Brain Neural Network" className="hero__brain-img" />
           </div>
         </div>
       </div>
