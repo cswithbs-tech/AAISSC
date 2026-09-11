@@ -1,95 +1,125 @@
-.registration-container {
+.reg__layout {
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
+  grid-template-columns: 360px 1fr;
   gap: 2rem;
+  align-items: start;
 }
 
-.registration-info h3, .registration-tables h3 {
-  color: var(--primary-color);
-  font-size: 1.5rem;
+/* ── Sidebar ── */
+.reg__sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.reg__dates, .reg__bank { padding: 2rem; }
+
+.reg__dates h3, .reg__bank h3 {
+  font-size: 1.1rem;
+  color: var(--maroon);
   margin-bottom: 1.5rem;
-  border-bottom: 2px solid rgba(140, 28, 19, 0.1);
-  padding-bottom: 0.5rem;
 }
 
-.mt-4 {
-  margin-top: 2.5rem;
-}
+.reg__date-list { display: flex; flex-direction: column; gap: 0; }
 
-.mt-2 {
-  margin-top: 1.5rem;
-  display: inline-flex;
-}
-
-.dates-list {
-  list-style: none;
-}
-
-.dates-list li {
+.reg__date-row {
   display: flex;
   justify-content: space-between;
-  padding: 1rem 0;
-  border-bottom: 1px dashed rgba(0,0,0,0.1);
+  align-items: center;
+  padding: 0.85rem 0;
+  border-bottom: 1px dashed var(--border);
+  font-size: 0.9rem;
+  gap: 1rem;
 }
 
-.date-label {
-  font-weight: 500;
+.reg__date-row span { color: var(--text-muted); flex: 1; }
+.reg__date-row strong { color: var(--text-main); white-space: nowrap; }
+
+.reg__date-row.highlight {
+  background: rgba(123,13,30,0.05);
+  margin: 0 -2rem;
+  padding: 0.85rem 2rem;
+  border-radius: 0;
 }
 
-.date-value {
-  color: var(--secondary-color);
-  font-weight: bold;
+.reg__date-row.highlight strong { color: var(--saffron); }
+
+.reg__bank-note {
+  font-size: 0.87rem;
+  color: var(--text-muted);
+  margin-bottom: 1.2rem;
 }
 
-.bank-details {
-  background: rgba(255,255,255,0.5);
-  padding: 1.5rem;
-  border-radius: 8px;
-  margin-top: 1rem;
-  border: 1px solid rgba(255,255,255,0.3);
+.reg__bank-rows { display: flex; flex-direction: column; gap: 0; margin-bottom: 1.5rem; }
+
+.reg__bank-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.88rem;
 }
 
-.bank-details p {
-  margin-bottom: 0.5rem;
+.reg__bank-row span {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
 }
 
-.table-responsive {
-  overflow-x: auto;
-  margin-bottom: 1rem;
-  border-radius: 8px;
-  overflow: hidden;
+.reg__bank-row strong { color: var(--text-main); }
+
+.reg__cta { width: 100%; margin-top: 0.5rem; }
+
+/* ── Tables ── */
+.reg__tables { display: flex; flex-direction: column; gap: 1.5rem; }
+
+.reg__table-block { padding: 2rem; }
+
+.reg__table-block h3 {
+  font-size: 1.1rem;
+  color: var(--maroon);
+  margin-bottom: 1.2rem;
 }
 
-table {
+.reg__accom-note {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 1.2rem;
+}
+
+.reg__table {
   width: 100%;
   border-collapse: collapse;
-  background: rgba(255,255,255,0.7);
 }
 
-th, td {
-  padding: 1rem;
-  text-align: left;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-}
-
-th {
-  background-color: var(--primary-color);
+.reg__table th {
+  background: var(--maroon);
   color: var(--white);
-  font-weight: 500;
+  padding: 0.85rem 1rem;
+  text-align: left;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
-tbody tr:hover {
-  background-color: rgba(255,255,255,0.9);
+.reg__table th:first-child { border-radius: var(--radius-sm) 0 0 0; }
+.reg__table th:last-child  { border-radius: 0 var(--radius-sm) 0 0; }
+
+.reg__table td {
+  padding: 0.85rem 1rem;
+  font-size: 0.92rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-main);
 }
 
-.text-small {
-  font-size: 0.9rem;
-  color: var(--text-light);
-  margin-bottom: 1rem;
-}
+.reg__table tbody tr:last-child td { border-bottom: none; }
+.reg__table tbody tr:hover td { background: rgba(123,13,30,0.04); }
 
-@media (max-width: 900px) {
-  .registration-container {
-    grid-template-columns: 1fr;
-  }
+.fee-cell { font-weight: 600; color: var(--maroon); }
+.fee-cell.spot { color: var(--saffron); }
+
+@media (max-width: 960px) {
+  .reg__layout { grid-template-columns: 1fr; }
 }

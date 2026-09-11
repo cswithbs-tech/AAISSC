@@ -1,82 +1,86 @@
-import React from 'react';
-import Reveal from './Reveal';
+import React, { useEffect, useRef } from 'react';
 import './Speakers.css';
 
-const Speakers = () => {
-  const resourcePersons = [
-    {
-      name: "Dr. Sandip Chakraborty",
-      designation: "Associate Professor, Department of Computer Science and Engineering, and Head, Computer and Informatics Center, IIT Kharagpur, Kharagpur, WB-721302 India."
-    },
-    {
-      name: "Dr. Debdoot Sheet",
-      designation: "Associate Professor, Department of Electrical Engineering, IIT Kharagpur, Kharagpur, WB-721302 India."
-    },
-    {
-      name: "Dr. Suparna Biswas",
-      designation: "Associate Professor, Department of Computer Science and Engineering, Maulana Abul Kalam Azad University of Technology, Nadia, West Bengal, 741249, India."
-    },
-    {
-      name: "Dr. Biswapati Jana",
-      designation: "Professor and Head, Department of Computer Science, Vidyasagar University, West Bengal, India."
-    },
-    {
-      name: "Dr. Chandreyee Chowdhury",
-      designation: "Professor, Jadavpur University, 188, Raja S.C. Mallick Rd, Kolkata 700032."
-    },
-    {
-      name: "Dr. Ramesh Saha",
-      designation: "Assistant Professor, Department of Computer Science and Engineering, IIIT Sonepat, IIT Delhi Techno Park, Rajiv Gandhi Education City, Rai, Sonepat, Haryana-131001, India."
-    },
-    {
-      name: "Mr. Bijit Biswas",
-      designation: "Scientist D, SAMEER Kolkata Center."
-    }
-  ];
+const speakers = [
+  { initials: 'SC', name: 'Dr. Sandip Chakraborty',   role: 'Associate Professor & Head, Computer & Informatics Center', org: 'IIT Kharagpur', color: '#7B0D1E' },
+  { initials: 'DS', name: 'Dr. Debdoot Sheet',         role: 'Associate Professor, Dept. of Electrical Engineering',      org: 'IIT Kharagpur', color: '#E8571A' },
+  { initials: 'SB', name: 'Dr. Suparna Biswas',        role: 'Associate Professor, Dept. of Computer Science & Engineering', org: 'MAKAUT, West Bengal', color: '#C0392B' },
+  { initials: 'BJ', name: 'Dr. Biswapati Jana',        role: 'Professor & Head, Dept. of Computer Science',               org: 'Vidyasagar University', color: '#E8A020' },
+  { initials: 'CC', name: 'Dr. Chandreyee Chowdhury',  role: 'Professor',                                                  org: 'Jadavpur University',   color: '#7B0D1E' },
+  { initials: 'RS', name: 'Dr. Ramesh Saha',           role: 'Assistant Professor, Dept. of CSE',                          org: 'IIIT Sonepat',          color: '#E8571A' },
+  { initials: 'BB', name: 'Mr. Bijit Biswas',          role: 'Scientist D',                                                org: 'SAMEER Kolkata Center',  color: '#9E1C2E' },
+];
 
-  const getInitial = (name) => {
-    return name.replace('Dr. ', '').replace('Mr. ', '').charAt(0);
-  };
+const committee = [
+  { role: 'Chief Patron',           name: 'Dr. Pradip Ghosh',           title: 'Founder Director' },
+  { role: 'Patron',                 name: 'Dr. Sudipta Chakrabarti',    title: 'Principal & Associate Professor' },
+  { role: 'Co-Patron',             name: 'Dr. Kuntal Ghosh',            title: 'Vice-Principal' },
+  { role: 'Convenor',              name: 'Mr. Buddhadev Sasmal',        title: 'Asst. Professor' },
+  { role: 'Organising Secretary',  name: 'Mr. Srimanta Santra',         title: 'Asst. Professor' },
+  { role: 'Co-ordinator',          name: 'Mr. Narayan Chandra Maiti',   title: 'Asst. Professor' },
+  { role: 'Joint Co-ordinator',    name: 'Mr. Subhankar Kundu',         title: 'Asst. Professor' },
+  { role: 'Technical Chair',       name: 'Dr. Suparna Biswas',          title: 'Assoc. Professor, MAKAUT' },
+  { role: 'Publicity Chairs',      name: 'Mr. S. K. Barman, Mr. D. Maity', title: 'Asst. Professors' },
+];
+
+const Speakers = () => {
+  const ref = useRef(null);
+  useEffect(() => {
+    const els = ref.current?.querySelectorAll('.reveal');
+    if (!els) return;
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    els.forEach((el, i) => { el.style.transitionDelay = `${i * 0.1}s`; obs.observe(el); });
+    return () => obs.disconnect();
+  }, []);
 
   return (
-    <section id="speakers" className="section">
-      <Reveal>
-        <h2 className="section-title">Resource Persons</h2>
-      </Reveal>
-      <div className="speakers-grid">
-        {resourcePersons.map((speaker, index) => (
-          <Reveal key={index} delay={index * 100}>
-            <div className="speaker-card tilt-effect glass">
-              <div className="speaker-avatar">
-                {getInitial(speaker.name)}
+    <section id="speakers" className="section" ref={ref}>
+      <div className="container">
+
+        <div className="reveal">
+          <p className="section__label">Resource Persons</p>
+          <h2 className="section__title">Distinguished Speakers</h2>
+          <span className="gold-rule" />
+          <p className="section__subtitle">
+            Leading researchers and practitioners from premier institutions across India.
+          </p>
+        </div>
+
+        {/* ── Speaker Cards ── */}
+        <div className="speakers__grid">
+          {speakers.map((s, i) => (
+            <div key={i} className="speaker-card card reveal">
+              <div className="speaker-card__avatar" style={{ background: s.color }}>
+                {s.initials}
+                <div className="speaker-card__glow" style={{ background: s.color }} />
               </div>
-              <div className="speaker-info">
-                <h3>{speaker.name}</h3>
-                <p>{speaker.designation}</p>
+              <div className="speaker-card__body">
+                <h3 className="speaker-card__name">{s.name}</h3>
+                <p className="speaker-card__role">{s.role}</p>
+                <span className="speaker-card__org">{s.org}</span>
               </div>
             </div>
-          </Reveal>
-        ))}
-      </div>
+          ))}
+        </div>
 
-      <div className="committee-section">
-        <Reveal>
-          <h2 className="section-title" style={{ marginTop: '6rem' }}>Organizing Committee</h2>
-        </Reveal>
-        <Reveal direction="up" delay={200}>
-          <div className="committee-list glass">
-            <p><strong>Chief Patron:</strong> Dr. Pradip Ghosh, Founder Director</p>
-            <p><strong>Patron:</strong> Dr. Sudipta Chakrabarti, Principal & Associate Professor</p>
-            <p><strong>Co Patron:</strong> Dr. Kuntal Ghosh, Vice-Principal</p>
-            <p><strong>Convenor:</strong> Mr. Buddhadev Sasmal, Asst. Professor</p>
-            <p><strong>Organizing Secretary:</strong> Mr. Srimanta Santra, Asst. Professor</p>
-            <p><strong>Co-ordinator:</strong> Mr. Narayan Chandra Maiti, Asst. Professor</p>
-            <p><strong>Joint Co-ordinator:</strong> Mr. Subhankar Kundu, Asst. Professor</p>
-            <p><strong>Technical Chair:</strong> Dr. Suparna Biswas, Assoc. Professor, MAKAUT</p>
-            <p><strong>Publicity Chairs:</strong> Mr. Sanjoy Kumar Barman, Mr. Debaprasad Maity</p>
-            <p><strong>Transport:</strong> Mr. Abhishek Das, Mr. Arindam Sahoo, Miss Moumita Nayak</p>
+        {/* ── Committee ── */}
+        <div className="committee reveal">
+          <div className="committee__header">
+            <h2 className="section__title" style={{ marginBottom: 0 }}>Organising Committee</h2>
           </div>
-        </Reveal>
+          <div className="committee__grid">
+            {committee.map(({ role, name, title }) => (
+              <div key={role} className="committee__item">
+                <span className="committee__role">{role}</span>
+                <span className="committee__name">{name}</span>
+                <span className="committee__title">{title}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
       </div>
     </section>
   );

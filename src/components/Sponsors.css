@@ -1,0 +1,134 @@
+.sponsors__featured {
+  padding: 3rem;
+  background: var(--maroon);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.sponsors__featured::before {
+  content: '';
+  position: absolute;
+  top: -30%; right: -10%;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(232,160,32,0.15), transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.sponsors__featured-badge {
+  display: inline-block;
+  padding: 0.3rem 1.1rem;
+  background: rgba(232,160,32,0.2);
+  border: 1px solid rgba(232,160,32,0.4);
+  color: var(--gold-light);
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+.sponsors__ieee-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.sponsors__ieee-icon {
+  width: 72px;
+  height: 72px;
+  background: linear-gradient(135deg, var(--gold), var(--saffron));
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 900;
+  font-size: 1.3rem;
+  color: var(--white);
+  box-shadow: 0 8px 20px rgba(232,87,26,0.35);
+}
+
+.sponsors__ieee-text {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.sponsors__ieee-text strong {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--white);
+}
+
+.sponsors__ieee-text span {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.6);
+}
+
+.sponsors__ieee-desc {
+  max-width: 640px;
+  margin: 0 auto;
+  color: rgba(255,255,255,0.7);
+  font-size: 0.97rem;
+  line-height: 1.7;
+}
+
+/* ── Org blocks ── */
+.sponsors__org {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.sponsors__org-block {
+  padding: 2.5rem;
+}
+
+.sponsors__org-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.sponsors__org-block h3 {
+  color: var(--maroon);
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+}
+
+.sponsors__org-block strong {
+  display: block;
+  font-size: 1rem;
+  color: var(--maroon);
+  margin-bottom: 0.5rem;
+}
+
+.sponsors__org-block p {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+.sponsors__link {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--saffron);
+  transition: color 0.2s;
+}
+
+.sponsors__link:hover { color: var(--maroon); }
+
+@media (max-width: 700px) {
+  .sponsors__org { grid-template-columns: 1fr; }
+  .sponsors__ieee-logo { flex-direction: column; }
+}

@@ -5,6 +5,8 @@ import About from './components/About';
 import Topics from './components/Topics';
 import Speakers from './components/Speakers';
 import Registration from './components/Registration';
+import Sponsors from './components/Sponsors';
+import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 function App() {
@@ -17,6 +19,8 @@ function App() {
         <Topics />
         <Speakers />
         <Registration />
+        <Sponsors />
+        <Contact />
       </main>
       <Footer />
     </>
