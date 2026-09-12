@@ -8,20 +8,24 @@ const Footer = () => {
       <div className="footer__top">
         <div className="container footer__inner">
           <div className="footer__brand">
-            <div className="footer__logo">
-              <div className="footer__logo-icon">AI</div>
-              <div>
-                <strong>AAISSC 2026</strong>
-                <span>Midnapore City College</span>
-              </div>
+            <div className="footer__logos">
+              <img src="/city_college_logo.png" alt="City College Logo" className="footer__logo-img footer__logo-img--college" />
+              <div className="footer__logo-divider" />
+              <img src="/AAISSC_logo.jpeg" alt="AAISSC Logo" className="footer__logo-img footer__logo-img--event" />
+            </div>
+            <div className="footer__brand-text">
+              <strong>AAISSC 2026</strong>
+              <span>Midnapore City College</span>
             </div>
             <p className="footer__tagline">
               Two-Day National Seminar on Applications of Artificial Intelligence 
               in Sustainable and Smart Computing.
             </p>
             <div className="footer__ieee">
-              <span>Technically Sponsored by</span>
-              <strong>IEEE Computer Society — Kolkata Section</strong>
+              <span className="footer__ieee-text">Technically Sponsored by</span>
+              <div className="footer__ieee-logo-box">
+                <img src="/IEEE-CS_LogoTM-orange.png" alt="IEEE Computer Society" className="footer__ieee-logo" />
+              </div>
             </div>
           </div>
 
@@ -57,9 +61,9 @@ const Footer = () => {
         <div className="container footer__bottom-inner">
           <p>&copy; {year} Midnapore City College. All rights reserved.</p>
           <p>
-            Designed &amp; built by{' '}
-            <a href="https://amarnathbera.in" target="_blank" rel="noopener noreferrer">
-              Amarnath Bera
+            Designed &amp; Developed by{' '}
+            <a href="https://amarnathbera.in" target="_blank" rel="noopener noreferrer" className="footer__author-link">
+              Amarnath Bera (Dept. of BCA,MCC)
             </a>
           </p>
         </div>

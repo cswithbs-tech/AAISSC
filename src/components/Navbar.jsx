@@ -17,9 +17,28 @@ const Navbar = () => {
   const navRef = useRef(null);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 60);
+
+      // Scroll Spy logic
+      for (let i = links.length - 1; i >= 0; i--) {
+        const section = document.querySelector(links[i].href);
+        if (section) {
+          const rect = section.getBoundingClientRect();
+          // If the top of the section is at or above the navbar (plus a small threshold of 150px)
+          if (rect.top <= 150) {
+            setActiveLink(links[i].href);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    // Call it once on mount to set initial state
+    handleScroll();
+    
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   // Close menu on outside click
@@ -43,8 +62,11 @@ const Navbar = () => {
       <div className="navbar__inner">
         {/* ── Brand / Logo ── */}
         <a href="#home" className="navbar__brand" onClick={() => handleNavClick('#home')}>
-          <img src="/city_college_logo.png" alt="City College Logo" className="navbar__brand-logo" />
-          <div className="navbar__brand-divider" />
+          <div className="navbar__logos">
+            <img src="/city_college_logo.png" alt="City College Logo" className="navbar__brand-logo navbar__brand-logo--college" />
+            <div className="navbar__brand-divider" />
+            <img src="/AAISSC_logo.jpeg" alt="AAISSC Logo" className="navbar__brand-logo navbar__brand-logo--event" />
+          </div>
           <div className="navbar__brand-text">
             <span className="navbar__brand-sub">Midnapore City College</span>
             <span className="navbar__brand-title">AAISSC 2026</span>

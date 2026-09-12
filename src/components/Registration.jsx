@@ -74,49 +74,53 @@ const Registration = () => {
           <div className="reg__tables">
             <div className="reg__table-block card reveal">
               <h3>Registration Fee</h3>
-              <table className="reg__table">
-                <thead>
-                  <tr>
-                    <th>Category</th>
-                    <th>Before 10 Sep</th>
-                    <th>Spot Registration</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {fees.map(({ cat, early, spot }) => (
-                    <tr key={cat}>
-                      <td>{cat}</td>
-                      <td className="fee-cell">{early}</td>
-                      <td className="fee-cell spot">{spot}</td>
+              <div className="reg__table-wrapper">
+                <table className="reg__table">
+                  <thead>
+                    <tr>
+                      <th>Category</th>
+                      <th>Before 10 Sep</th>
+                      <th>Spot Registration</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {fees.map(({ cat, early, spot }) => (
+                      <tr key={cat}>
+                        <td>{cat}</td>
+                        <td className="fee-cell">{early}</td>
+                        <td className="fee-cell spot">{spot}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
 
             <div className="reg__table-block card reveal">
               <h3>Accommodation (Per Night)</h3>
               <p className="reg__accom-note">Available in nearby guest houses / hotels on request (payment basis).</p>
-              <table className="reg__table">
-                <thead>
-                  <tr>
-                    <th>Category</th>
-                    <th>AC</th>
-                    <th>Non-AC</th>
-                    <th>Dormitory</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {accom.map(({ cat, ac, nonAc, dorm }) => (
-                    <tr key={cat}>
-                      <td>{cat}</td>
-                      <td className="fee-cell">{ac}</td>
-                      <td className="fee-cell">{nonAc}</td>
-                      <td className="fee-cell">{dorm}</td>
+              <div className="reg__table-wrapper">
+                <table className="reg__table">
+                  <thead>
+                    <tr>
+                      <th>Category</th>
+                      <th>AC</th>
+                      <th>Non-AC</th>
+                      <th>Dormitory</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {accom.map(({ cat, ac, nonAc, dorm }) => (
+                      <tr key={cat}>
+                        <td>{cat}</td>
+                        <td className="fee-cell">{ac}</td>
+                        <td className="fee-cell">{nonAc}</td>
+                        <td className="fee-cell">{dorm}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>

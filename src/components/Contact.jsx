@@ -32,56 +32,67 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="contact__layout">
-          {/* ── Contact Cards ── */}
-          <div className="contact__cards">
-            {contacts.map(({ icon, label, name, detail, href }) => (
-              <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="contact__card card reveal">
-                <div className="contact__card-icon">{icon}</div>
-                <div className="contact__card-body">
-                  <span className="contact__card-label">{label}</span>
-                  <strong className="contact__card-name">{name}</strong>
-                  <span className="contact__card-detail">{detail}</span>
-                </div>
-                <span className="contact__card-arrow">→</span>
-              </a>
-            ))}
+        <div className="contact__split-card card reveal">
+          
+          {/* ── Left: Contact Details ── */}
+          <div className="contact__split-left">
+            <h3 className="contact__split-title">Get in Touch</h3>
+            <p className="contact__split-desc">Have questions about the seminar, paper submission, or registration? We're here to help.</p>
+            
+            <ul className="contact__list">
+              {contacts.map(({ icon, label, name, detail, href }) => (
+                <li key={label}>
+                  <a href={href} target="_blank" rel="noopener noreferrer" className="contact__list-item">
+                    <div className="contact__list-icon">{icon}</div>
+                    <div className="contact__list-text">
+                      <span className="contact__list-label">{label}</span>
+                      <strong className="contact__list-name">{name}</strong>
+                      <span className="contact__list-detail">{detail}</span>
+                    </div>
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          {/* ── Venue Map Block ── */}
-          <div className="contact__venue card reveal">
-            <div className="contact__venue-header">
-              <span className="contact__venue-icon">📍</span>
-              <div>
-                <h3>Venue</h3>
-                <p>A. P. J. Abdul Kalam Memorial Hall</p>
+          {/* ── Right: Map & Venue ── */}
+          <div className="contact__split-right">
+            <div className="contact__map-container">
+              <iframe 
+                src="https://maps.google.com/maps?q=Midnapore%20City%20College,%20Bhadutala,%20West%20Bengal&t=&z=14&ie=UTF8&iwloc=&output=embed" 
+                width="100%" 
+                height="100%" 
+                style={{ border: 0 }} 
+                allowFullScreen="" 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Midnapore City College Map"
+                className="contact__map-iframe"
+              ></iframe>
+            </div>
+            
+            <div className="contact__venue-info">
+              <div className="contact__venue-main">
+                <div className="contact__venue-icon-wrapper">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                </div>
+                <div>
+                  <strong>A. P. J. Abdul Kalam Memorial Hall</strong>
+                  <span>Midnapore City College, Bhadutala, Paschim Medinipur, WB — 721129</span>
+                </div>
+              </div>
+              
+              <div className="contact__venue-routes">
+                <div className="contact__route-badge">
+                  <span className="route-icon">🚆</span> <span className="route-text"><strong>6 km</strong> from Midnapore Railway Station</span>
+                </div>
+                <div className="contact__route-badge">
+                  <span className="route-icon">🚌</span> <span className="route-text"><strong>5 km</strong> from Midnapore Central Bus Stand</span>
+                </div>
               </div>
             </div>
-            <div className="contact__venue-address">
-              <strong>Midnapore City College</strong>
-              <span>Bhadutala, Midnapore, Paschim Medinipur</span>
-              <span>West Bengal — 721129, India</span>
-            </div>
-            <div className="contact__venue-route">
-              <div className="contact__route-item">
-                <span className="contact__route-icon">🚆</span>
-                <span><strong>6 km</strong> from Midnapore Railway Station</span>
-              </div>
-              <div className="contact__route-item">
-                <span className="contact__route-icon">🚌</span>
-                <span><strong>5 km</strong> from Midnapore Central Bus Stand via Keranichati</span>
-              </div>
-            </div>
-            <a
-              href="https://maps.google.com/?q=Midnapore+City+College"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn--primary"
-              style={{ marginTop: '1.5rem', width: '100%' }}
-            >
-              Open in Google Maps
-            </a>
           </div>
+
         </div>
 
       </div>

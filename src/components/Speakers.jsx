@@ -1,26 +1,66 @@
 import React, { useEffect, useRef } from 'react';
 import './Speakers.css';
 
+// Add or edit speakers here. 
+// For images, put your photos in the "public" folder (e.g. public/speaker1.jpg) 
+// and reference them here as image: '/speaker1.jpg'
 const speakers = [
-  { initials: 'SC', name: 'Dr. Sandip Chakraborty',   role: 'Associate Professor & Head, Computer & Informatics Center', org: 'IIT Kharagpur', color: '#7B0D1E' },
-  { initials: 'DS', name: 'Dr. Debdoot Sheet',         role: 'Associate Professor, Dept. of Electrical Engineering',      org: 'IIT Kharagpur', color: '#E8571A' },
-  { initials: 'SB', name: 'Dr. Suparna Biswas',        role: 'Associate Professor, Dept. of Computer Science & Engineering', org: 'MAKAUT, West Bengal', color: '#C0392B' },
-  { initials: 'BJ', name: 'Dr. Biswapati Jana',        role: 'Professor & Head, Dept. of Computer Science',               org: 'Vidyasagar University', color: '#E8A020' },
-  { initials: 'CC', name: 'Dr. Chandreyee Chowdhury',  role: 'Professor',                                                  org: 'Jadavpur University',   color: '#7B0D1E' },
-  { initials: 'RS', name: 'Dr. Ramesh Saha',           role: 'Assistant Professor, Dept. of CSE',                          org: 'IIIT Sonepat',          color: '#E8571A' },
-  { initials: 'BB', name: 'Mr. Bijit Biswas',          role: 'Scientist D',                                                org: 'SAMEER Kolkata Center',  color: '#9E1C2E' },
+  { 
+    name: 'Dr. Paramartha Dutta',   
+    role: 'Professor', 
+    org: 'Department of Computer & System Sciences Siksha Bhavana (Institute of Science) Visva-Bharati Santiniketan, Birbhum, WB, India', 
+    image: '/paramartha-dutta.jpeg' ,
+    link: 'https://www.visvabharati.ac.in/ParamarthaDuttaCSS.html'
+  },
+  { 
+    name: 'Dr. Biswapati Jana',         
+    role: 'Professor',      
+    org: 'Department of Computer Science, Vidyasagar University, Midnapore, West Bengal, India', 
+    image: '/biswapati-jana.jpeg' ,
+    link:'https://faculty.vidyasagar.ac.in/Faculties/Profile?fac_u_id=Fac-CS-25'
+  },
+  { 
+    name: 'Dr. Suparna Biswas',        
+    role: ' Professor', 
+    org: ' Department of Computer Science & Engineering, Maulana Abul Kalam Azad University of Technology, WB, India', 
+    image: '/suparna-biswas.jpg',
+    link:'https://makautwb.ac.in/plug.php?e=WBUTtool&f=faculty_profile&user_id=38'
+  },
+  { 
+    name: 'Dr. Saptarsi Goswami',        
+    role: 'Assistant Professor',               
+    org: 'Bangabasi Morning College, Calcutta University', 
+    image: '/saptarshi-goswami.jpg', 
+    link:'https://scholar.google.com/citations?user=_3RrFtEAAAAJ&hl=en'
+  },
+  { 
+    name: 'Tuhin Kumar Mukherjee',        
+    role: 'Data Architect',               
+    org: 'Capgemini Technology Services India Limited', 
+    image: '/tuhin-kumar-mukherjee.jpeg', 
+    link:'https://www.linkedin.com/in/tuhinmukherjee?originalSubdomain=in',
+    imgPosition: 'center center'
+  },
+  { 
+    name: 'Dr. Ramesh Saha',        
+    role: 'Assistant Professor',               
+    org: 'Department of Computer Science and Engineering, IIIT Sonepat', 
+    image: '/ramesh-saha.png', 
+    link:'https://scholar.google.com/citations?user=jQQKGQ0AAAAJ&hl=en'
+  },
+  
 ];
 
 const committee = [
-  { role: 'Chief Patron',           name: 'Dr. Pradip Ghosh',           title: 'Founder Director' },
-  { role: 'Patron',                 name: 'Dr. Sudipta Chakrabarti',    title: 'Principal & Associate Professor' },
-  { role: 'Co-Patron',             name: 'Dr. Kuntal Ghosh',            title: 'Vice-Principal' },
-  { role: 'Convenor',              name: 'Mr. Buddhadev Sasmal',        title: 'Asst. Professor' },
-  { role: 'Organising Secretary',  name: 'Mr. Srimanta Santra',         title: 'Asst. Professor' },
-  { role: 'Co-ordinator',          name: 'Mr. Narayan Chandra Maiti',   title: 'Asst. Professor' },
-  { role: 'Joint Co-ordinator',    name: 'Mr. Subhankar Kundu',         title: 'Asst. Professor' },
-  { role: 'Technical Chair',       name: 'Dr. Suparna Biswas',          title: 'Assoc. Professor, MAKAUT' },
-  { role: 'Publicity Chairs',      name: 'Mr. S. K. Barman, Mr. D. Maity', title: 'Asst. Professors' },
+  { role: 'Chief Patron',           name: 'Dr. Pradip Ghosh',           title: 'Founder Director', image: '/1.png' },
+  { role: 'Patron',                 name: 'Dr. Sudipta Chakrabarti',    title: 'Principal & Associate Professor', image: '/47.png' },
+  { role: 'Co-Patron',             name: 'Dr. Kuntal Ghosh',            title: 'Vice-Principal', image: '/91.png' },
+  { role: 'Convenor',              name: 'Mr. Buddhadev Sasmal',        title: 'Asst. Professor', image: '/186.png' },
+  { role: 'Organising Secretary',  name: 'Mr. Srimanta Santra',         title: 'Asst. Professor', image: '/145.png' },
+  { role: 'Co-ordinator',          name: 'Mr. Narayan Chandra Maiti',   title: 'Asst. Professor', image: '/218.png' },
+  { role: 'Joint Co-ordinator',    name: 'Mr. Subhankar Kundu',         title: 'Asst. Professor', image: '/190.png' },
+  { role: 'Technical Chair',       name: 'Dr. Suparna Biswas',          title: 'Assoc. Professor, MAKAUT', image: '/suparna-biswas.jpg' },
+  { role: 'Publicity Chairs',      name: 'Mr. S. K. Barman', title: 'Asst. Professors', image: '/177.png' },
 ];
 
 const Speakers = () => {
@@ -51,15 +91,24 @@ const Speakers = () => {
         {/* ── Speaker Cards ── */}
         <div className="speakers__grid">
           {speakers.map((s, i) => (
-            <div key={i} className="speaker-card card reveal">
-              <div className="speaker-card__avatar" style={{ background: s.color }}>
-                {s.initials}
-                <div className="speaker-card__glow" style={{ background: s.color }} />
+            <div key={i} className="speaker-card reveal">
+              <div className="speaker-card__image-container">
+                <img 
+                  src={s.image} 
+                  alt={s.name} 
+                  className="speaker-card__image" 
+                  style={s.imgPosition ? { objectPosition: s.imgPosition } : undefined}
+                />
               </div>
               <div className="speaker-card__body">
                 <h3 className="speaker-card__name">{s.name}</h3>
                 <p className="speaker-card__role">{s.role}</p>
                 <span className="speaker-card__org">{s.org}</span>
+                {s.link ? (
+                  <a href={s.link} target="_blank" rel="noopener noreferrer" className="speaker-card__link">
+                    View Profile
+                  </a>
+                ) : null}
               </div>
             </div>
           ))}
@@ -71,13 +120,21 @@ const Speakers = () => {
             <h2 className="section__title" style={{ marginBottom: 0 }}>Organising Committee</h2>
           </div>
           <div className="committee__grid">
-            {committee.map(({ role, name, title }) => (
-              <div key={role} className="committee__item">
-                <span className="committee__role">{role}</span>
-                <span className="committee__name">{name}</span>
-                <span className="committee__title">{title}</span>
-              </div>
-            ))}
+            {committee.map(({ role, name, title, image }) => {
+              const avatarSrc = image ? image : `https://ui-avatars.com/api/?name=${encodeURIComponent(name.replace('Dr. ', '').replace('Mr. ', ''))}&background=7b0d1e&color=fff&size=150&bold=true`;
+              return (
+                <div key={role} className="committee__item">
+                  <div className="committee__avatar">
+                    <img src={avatarSrc} alt={name} />
+                  </div>
+                  <div className="committee__item-text">
+                    <span className="committee__role">{role}</span>
+                    <span className="committee__name">{name}</span>
+                    <span className="committee__title">{title}</span>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
 
