@@ -25,8 +25,8 @@ const Navbar = () => {
         const section = document.querySelector(links[i].href);
         if (section) {
           const rect = section.getBoundingClientRect();
-          // If the top of the section is at or above the navbar (plus a small threshold of 150px)
-          if (rect.top <= 150) {
+          // Activate section when it reaches the upper half of the viewport
+          if (rect.top <= window.innerHeight / 3 + 100) {
             setActiveLink(links[i].href);
             break;
           }
