@@ -42,13 +42,6 @@ const speakers = [
     imgPosition: 'center center'
   },
   { 
-    name: 'Dr. Ramesh Saha',        
-    role: 'Assistant Professor',               
-    org: 'Department of Computer Science and Engineering, IIIT Sonepat', 
-    image: '/ramesh-saha.png', 
-    link:'https://scholar.google.com/citations?user=jQQKGQ0AAAAJ&hl=en'
-  },
-  { 
     name: 'Dr. Debayan Ganguly',        
     role: 'Deputy Director',               
     org: 'Officer on Special Duty (OSD) & Ex-officio Directorate of Technical Education Government of West Bengal', 
