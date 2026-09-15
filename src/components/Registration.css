@@ -73,9 +73,17 @@
 .reg__cta { width: 100%; margin-top: 0.5rem; }
 
 /* ── Tables ── */
-.reg__tables { display: flex; flex-direction: column; gap: 1.5rem; }
+.reg__tables { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 1.5rem; 
+  min-width: 0; /* Prevents flex children from overflowing parent */
+}
 
-.reg__table-block { padding: 2rem; }
+.reg__table-block { 
+  padding: 2rem; 
+  min-width: 0; /* Crucial for allowing internal overflow */
+}
 
 .reg__table-block h3 {
   font-size: 1.1rem;
@@ -99,6 +107,7 @@
 .reg__table {
   width: 100%;
   border-collapse: collapse;
+  min-width: max-content; /* Forces table to take whatever width its content needs */
 }
 
 .reg__table th {
@@ -130,7 +139,8 @@
 .fee-cell.spot { color: var(--saffron); }
 
 @media (max-width: 960px) {
-  .reg__layout { grid-template-columns: 1fr; }
+  /* Using minmax(0, 1fr) instead of 1fr prevents the grid from expanding past viewport */
+  .reg__layout { grid-template-columns: minmax(0, 1fr); }
 }
 
 @media (max-width: 500px) {
@@ -152,6 +162,11 @@
   .reg__table th, .reg__table td {
     padding: 0.75rem 0.6rem; /* Slightly tighter padding for mobile */
     font-size: 0.85rem;
+    white-space: nowrap !important;
+  }
+  
+  .reg__table {
+    min-width: 600px; /* Absolutely forces horizontal scroll on mobile */
   }
   
   .reg__dates, .reg__bank { 

@@ -16,7 +16,7 @@ const speakers = [
     name: 'Dr. Biswapati Jana',         
     role: 'Professor',      
     org: 'Department of Computer Science, Vidyasagar University, Midnapore, West Bengal, India', 
-    image: '/biswapati-jana.jpeg' ,
+    image: '/biswapati-jana.jpg' ,
     link:'https://faculty.vidyasagar.ac.in/Faculties/Profile?fac_u_id=Fac-CS-25'
   },
   { 
@@ -34,8 +34,8 @@ const speakers = [
     link:'https://scholar.google.com/citations?user=_3RrFtEAAAAJ&hl=en'
   },
   { 
-    name: 'Tuhin Kumar Mukherjee',        
-    role: 'Data Architect',               
+    name: 'Mr. Tuhin Kumar Mukherjee',        
+    role: 'Associate Director and Senior Data Architect',               
     org: 'Capgemini Technology Services India Limited', 
     image: '/tuhin-kumar-mukherjee.jpeg', 
     link:'https://www.linkedin.com/in/tuhinmukherjee?originalSubdomain=in',
@@ -48,7 +48,13 @@ const speakers = [
     image: '/ramesh-saha.png', 
     link:'https://scholar.google.com/citations?user=jQQKGQ0AAAAJ&hl=en'
   },
-  
+  { 
+    name: 'Dr. Debayan Ganguly',        
+    role: 'Deputy Director',               
+    org: 'Officer on Special Duty (OSD) & Ex-officio Directorate of Technical Education Government of West Bengal', 
+    image: '/debayan-ganguly.jpg', 
+    link:'https://www.linkedin.com/in/debayan-ganguly-2442931b/'
+  },
 ];
 
 const committee = [
@@ -62,6 +68,22 @@ const committee = [
   { role: 'Technical Chair',       name: 'Dr. Suparna Biswas',          title: 'Assoc. Professor, MAKAUT', image: '/suparna-biswas.jpg' },
   { role: 'Publicity Chairs',      name: 'Mr. S. K. Barman', title: 'Asst. Professors', image: '/177.png' },
 ];
+
+const CommitteeMember = ({ data, premium = false }) => {
+  const avatarSrc = data.image ? data.image : `https://ui-avatars.com/api/?name=${encodeURIComponent(data.name.replace('Dr. ', '').replace('Mr. ', ''))}&background=7b0d1e&color=fff&size=150&bold=true`;
+  return (
+    <div className={`committee__item ${premium ? 'committee__item--premium' : ''}`}>
+      <div className="committee__avatar">
+        <img src={avatarSrc} alt={data.name} />
+      </div>
+      <div className="committee__item-text">
+        <span className="committee__role">{data.role}</span>
+        <span className="committee__name">{data.name}</span>
+        <span className="committee__title">{data.title}</span>
+      </div>
+    </div>
+  );
+};
 
 const Speakers = () => {
   const ref = useRef(null);
@@ -119,22 +141,21 @@ const Speakers = () => {
           <div className="committee__header">
             <h2 className="section__title" style={{ marginBottom: 0 }}>Organising Committee</h2>
           </div>
+          
+          <div className="committee__leadership">
+            <div className="leadership__tier-1">
+              <CommitteeMember data={committee[0]} premium />
+            </div>
+            <div className="leadership__tier-2">
+              <CommitteeMember data={committee[1]} premium />
+              <CommitteeMember data={committee[2]} premium />
+            </div>
+          </div>
+
           <div className="committee__grid">
-            {committee.map(({ role, name, title, image }) => {
-              const avatarSrc = image ? image : `https://ui-avatars.com/api/?name=${encodeURIComponent(name.replace('Dr. ', '').replace('Mr. ', ''))}&background=7b0d1e&color=fff&size=150&bold=true`;
-              return (
-                <div key={role} className="committee__item">
-                  <div className="committee__avatar">
-                    <img src={avatarSrc} alt={name} />
-                  </div>
-                  <div className="committee__item-text">
-                    <span className="committee__role">{role}</span>
-                    <span className="committee__name">{name}</span>
-                    <span className="committee__title">{title}</span>
-                  </div>
-                </div>
-              );
-            })}
+            {committee.slice(3).map((member) => (
+              <CommitteeMember key={member.role} data={member} />
+            ))}
           </div>
         </div>
 

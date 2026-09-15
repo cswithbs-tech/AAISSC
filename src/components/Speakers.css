@@ -105,9 +105,59 @@
 }
 
 .committee__header {
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
   padding-bottom: 1.5rem;
   border-bottom: 2px solid var(--border);
+}
+
+/* ── Leadership Tiers ── */
+.committee__leadership {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.leadership__tier-1 {
+  display: flex;
+  justify-content: center;
+}
+
+.leadership__tier-2 {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+/* Premium Card for Leadership */
+.committee__item--premium {
+  background: linear-gradient(135deg, rgba(232, 160, 32, 0.05), rgba(255, 255, 255, 1));
+  border: 1px solid rgba(232, 160, 32, 0.3);
+  box-shadow: 0 8px 25px rgba(123, 13, 30, 0.06);
+  border-radius: var(--radius-lg);
+  padding: 1.8rem 2.2rem;
+  min-width: 340px;
+  max-width: 420px;
+  border-right: 1px solid rgba(232, 160, 32, 0.3) !important;
+  border-bottom: 1px solid rgba(232, 160, 32, 0.3) !important;
+}
+
+
+
+.committee__item--premium .committee__avatar {
+  width: 75px;
+  height: 75px;
+  border: 3px solid var(--gold);
+  box-shadow: 0 4px 15px rgba(232, 160, 32, 0.25);
+}
+
+.committee__item--premium .committee__role {
+  font-size: 0.78rem;
+  color: var(--maroon);
+}
+
+.committee__item--premium .committee__name {
+  font-size: 1.15rem;
 }
 
 .committee__grid {
@@ -129,12 +179,9 @@
   padding: 1.5rem;
   border-right: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
-  transition: background 0.2s ease;
 }
 
-.committee__item:hover {
-  background: rgba(123, 13, 30, 0.03); /* Subtle hover from previous design */
-}
+
 
 /* Remove borders on the last items to prevent double borders */
 .committee__item:nth-child(3n) {
@@ -192,10 +239,22 @@
   .committee__item:nth-child(2n) { border-right: none; }
   .committee__item:nth-last-child(-n+3) { border-bottom: 1px solid var(--border); }
   .committee__item:nth-last-child(-n+2) { border-bottom: none; }
+  
+  .leadership__tier-2 { gap: 1rem; }
+  .committee__item--premium { min-width: 300px; padding: 1.5rem; }
 }
 
 @media (max-width: 650px) {
   .committee__grid { grid-template-columns: 1fr; }
   .committee__item { border-right: none !important; border-bottom: 1px solid var(--border); }
   .committee__item:last-child { border-bottom: none; }
+  
+  .leadership__tier-1, .leadership__tier-2 {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .committee__item--premium {
+    min-width: 0;
+    width: 100%;
+  }
 }
