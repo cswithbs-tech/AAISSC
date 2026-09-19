@@ -6,8 +6,14 @@ const links = [
   { label: 'About',      href: '#about' },
   { label: 'Topics',     href: '#topics' },
   { label: 'Speakers',   href: '#speakers' },
+  { label: 'Schedule',   href: '#schedule' },
   { label: 'Sponsors',   href: '#sponsors' },
   { label: 'Contact Us', href: '#contact' },
+];
+
+// The exact order of sections in the DOM for accurate scroll spy
+const domSections = [
+  '#home', '#about', '#topics', '#speakers', '#schedule', '#registration', '#sponsors', '#contact'
 ];
 
 const Navbar = () => {
@@ -21,13 +27,13 @@ const Navbar = () => {
       setScrolled(window.scrollY > 60);
 
       // Scroll Spy logic
-      for (let i = links.length - 1; i >= 0; i--) {
-        const section = document.querySelector(links[i].href);
+      for (let i = domSections.length - 1; i >= 0; i--) {
+        const section = document.querySelector(domSections[i]);
         if (section) {
           const rect = section.getBoundingClientRect();
           // Activate section when it reaches the upper half of the viewport
           if (rect.top <= window.innerHeight / 3 + 100) {
-            setActiveLink(links[i].href);
+            setActiveLink(domSections[i]);
             break;
           }
         }
@@ -93,7 +99,11 @@ const Navbar = () => {
           ))}
           {/* ── CTA Button ── */}
           <li>
-            <a href="#registration" className="navbar__register-btn" onClick={() => handleNavClick('#registration')}>
+            <a 
+              href="#registration" 
+              className={`navbar__register-btn ${activeLink === '#registration' ? 'active' : ''}`} 
+              onClick={() => handleNavClick('#registration')}
+            >
               Register
             </a>
           </li>
@@ -121,7 +131,11 @@ const Navbar = () => {
             {label}
           </a>
         ))}
-        <a href="#registration" className="navbar__drawer-btn" onClick={() => handleNavClick('#registration')}>
+        <a 
+          href="#registration" 
+          className={`navbar__drawer-btn ${activeLink === '#registration' ? 'active' : ''}`} 
+          onClick={() => handleNavClick('#registration')}
+        >
           Register
         </a>
       </div>

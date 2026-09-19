@@ -5,6 +5,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Topics from './components/Topics';
 import Speakers from './components/Speakers';
+import Schedule from './components/Schedule';
 import Registration from './components/Registration';
 import Sponsors from './components/Sponsors';
 import Contact from './components/Contact';
@@ -19,6 +20,7 @@ function App() {
         <About />
         <Topics />
         <Speakers />
+        <Schedule />
         <Registration />
         <Sponsors />
         <Contact />

@@ -171,8 +171,10 @@
   display: inline-block;
 }
 
-.navbar__register-btn:hover {
+.navbar__register-btn:hover,
+.navbar__register-btn.active {
   background-color: #D94E15;
+  box-shadow: 0 0 10px rgba(232, 87, 26, 0.5);
 }
 
 /* ── Hamburger ── */
@@ -252,6 +254,13 @@
   border-radius: 9999px;
   text-decoration: none;
   margin-top: 1rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.navbar__drawer-btn:hover,
+.navbar__drawer-btn.active {
+  background-color: #D94E15;
+  box-shadow: 0 0 10px rgba(232, 87, 26, 0.5);
 }
 
 /* ── Responsive ── */
