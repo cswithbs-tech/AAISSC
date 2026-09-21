@@ -212,15 +212,16 @@
 }
 
 .footer__author-link {
-  color: inherit; /* Doesn't stand out */
-  font-weight: 600;
+  color: rgba(220, 147, 62, 0.65);
+  font-weight: 400;
   text-decoration: none;
+  letter-spacing: 0.3px;
   transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 .footer__author-link:hover {
-  color: var(--gold-light);
-  text-shadow: 0 0 8px rgba(232, 160, 32, 0.4);
+  color: rgba(220, 147, 62, 1);
+  text-shadow: 0 0 8px rgba(220, 147, 62, 0.3);
 }
 
 @media (max-width: 850px) {
