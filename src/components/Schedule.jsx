@@ -95,7 +95,7 @@ const scheduleData = {
       },
       {
         time: '11:50 A.M. - 12:30 P.M.',
-        title: 'Invited Lecture 6: Recent Advancement in Image Processing',
+        title: 'Invited Lecture 6: Integration of Artificial Intelligence and Internet of Things (AIoT) in Healthcare: Smart Monitoring, Predictive Diagnostics, and Sustainable Digital Health Systems.',
         desc: 'Dr. Ramesh Saha (Assistant Professor, Department of Computer Science and Engineering, IIIT, Sonepat, Haryana, India)'
       },
       { time: '12:30 P.M. - 01:30 P.M.', title: 'Lunch Break' },
