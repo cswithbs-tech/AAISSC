@@ -20,11 +20,11 @@ const speakers = [
     link:'https://faculty.vidyasagar.ac.in/Faculties/Profile?fac_u_id=Fac-CS-25'
   },
   { 
-    name: 'Dr. Suparna Biswas',        
-    role: ' Professor', 
-    org: ' Department of Computer Science & Engineering, Maulana Abul Kalam Azad University of Technology, WB, India', 
-    image: '/suparna-biswas.jpg',
-    link:'https://makautwb.ac.in/plug.php?e=WBUTtool&f=faculty_profile&user_id=38'
+    name: 'Dr. Ramesh Saha',        
+    role: 'Assistant Professor', 
+    org: ' Department of Computer Science & Engineering, IIIT, Sonepat, Haryana, India', 
+    image: '/ramesh-saha.png',
+    link:'https://scholar.google.com/citations?user=jQQKGQ0AAAAJ&hl=en'
   },
   { 
     name: 'Dr. Saptarsi Goswami',        

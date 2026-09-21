@@ -95,8 +95,8 @@ const scheduleData = {
       },
       {
         time: '11:50 A.M. - 12:30 P.M.',
-        title: 'Invited Lecture 6: Machine Learning in Healthcare for Sustainable Living',
-        desc: 'Dr. Suparna Biswas (Associate Professor, Department of Computer Science and Engineering, Maulana Abul Kalam Azad University of Technology)'
+        title: 'Invited Lecture 6: Recent Advancement in Image Processing',
+        desc: 'Dr. Ramesh Saha (Assistant Professor, Department of Computer Science and Engineering, IIIT, Sonepat, Haryana, India)'
       },
       { time: '12:30 P.M. - 01:30 P.M.', title: 'Lunch Break' },
       {
